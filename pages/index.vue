@@ -2,17 +2,50 @@
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
-const startDate = ref(new Date())
-const endDate = ref(new Date())
+// Variables
+const currDate = new Date()
+
+const startDate = ref(currDate)
+const endDate = ref(currDate)
 
 const startCurrDate = ref(true)
 const endCurrDate = ref(true)
 
+// Computed
 const dateDiff = computed(() => {
   if (!startDate.value || !endDate.value) {
     return null
   }
   return getDateDiff(endDate.value, startDate.value)
+})
+
+// Watchers
+watch(startDate, () => {
+  if (isSameDay(startDate.value, currDate)) {
+    startCurrDate.value = true
+    return
+  }
+  startCurrDate.value = false
+})
+
+watch(endDate, () => {
+  if (isSameDay(endDate.value, currDate)) {
+    endCurrDate.value = true
+    return
+  }
+  endCurrDate.value = false
+})
+
+watch(startCurrDate, () => {
+  if (startCurrDate.value) {
+    startDate.value = currDate
+  }
+})
+
+watch(endCurrDate, () => {
+  if (endCurrDate.value) {
+    endDate.value = currDate
+  }
 })
 </script>
 
@@ -25,8 +58,8 @@ const dateDiff = computed(() => {
           <h5>Count days since a past date, until an upcoming event or just two different dates</h5>
         </v-toolbar-title>
       </v-toolbar>
-      <v-card-text>
-        <div class="d-flex mx-4 mb-4">
+      <v-card-text class="mx-4">
+        <div class="d-flex mb-4">
           <!-- START DATE -->
           <div class="date-container start-date-container">
             <div class="d-flex align-center justify-space-between">
@@ -35,15 +68,20 @@ const dateDiff = computed(() => {
                 v-model="startCurrDate"
                 label="Current date"
                 hide-details
-                color="blue-darken-1"
-                class="flex-grow-0 mr-1"
+                color="blue-lighten-1"
                 density="compact"
+                :disabled="isSameDay(startDate, currDate)"
+                class="flex-grow-0 mr-1"
+                :class="{
+                  'cursor-not-allowed': isSameDay(startDate, currDate),
+                }"
               />
             </div>
             <Datepicker
               v-model="startDate"
               auto-apply
               :enable-time-picker="false"
+              :clearable="false"
             />
           </div>
 
@@ -55,21 +93,32 @@ const dateDiff = computed(() => {
                 v-model="endCurrDate"
                 label="Current date"
                 hide-details
-                color="blue-darken-1"
-                class="flex-grow-0 mr-1"
+                color="blue-lighten-1"
                 density="compact"
+                :disabled="isSameDay(endDate, currDate)"
+                class="flex-grow-0 mr-1"
+                :class="{
+                  'cursor-not-allowed': isSameDay(startDate, currDate),
+                }"
               />
             </div>
             <Datepicker
               v-model="endDate"
               auto-apply
               :enable-time-picker="false"
+              :clearable="false"
             />
           </div>
         </div>
-        <div v-if="dateDiff !== null">
-          {{ dateDiff }}
-        </div>
+        <v-card
+          v-if="dateDiff !== null"
+          variant="tonal"
+          color="blue-lighten-1"
+          class="py-2"
+        >
+          The number of days between the two given dates is:
+          <b>{{ dateDiff }}</b>
+        </v-card>
       </v-card-text>
     </v-card>
   </div>
@@ -101,5 +150,8 @@ const dateDiff = computed(() => {
       margin-left: 1rem;
     }
   }
+}
+.cursor-not-allowed {
+  cursor: not-allowed !important;
 }
 </style>
