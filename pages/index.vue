@@ -118,6 +118,20 @@ watch(endCurrDate, () => {
         >
           The number of days between the two given dates is:
           <b>{{ dateDiff }}</b>
+
+          <v-btn
+            v-if="dateDiff && (startCurrDate || endCurrDate)"
+            density="compact"
+            color="orange"
+            class="track-button"
+            variant="outlined"
+          >
+            track count
+            <v-icon
+              icon="mdi-radar"
+              class="ml-1"
+            />
+          </v-btn>
         </v-card>
       </v-card-text>
     </v-card>
@@ -153,5 +167,12 @@ watch(endCurrDate, () => {
 }
 .cursor-not-allowed {
   cursor: not-allowed !important;
+}
+.track-button {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.35rem;
+  float: right;
+  font-size: 0.75rem;
 }
 </style>
