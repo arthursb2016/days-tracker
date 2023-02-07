@@ -1,4 +1,13 @@
 <script setup lang="ts">
+type TrackCount = { startDate: Date, endDate: Date }
+
+let showTrackForm = ref(false)
+let trackData = reactive({})
+
+function onTrackCount(data: TrackCount) {
+  trackData = { ...data }
+  showTrackForm.value = true
+}
 </script>
 
 <template>
@@ -11,7 +20,15 @@
         </v-toolbar-title>
       </v-toolbar>
       <v-card-text class="mx-4">
-        <DateSelector />
+        <DateSelector
+          v-if="!showTrackForm"
+          @track="onTrackCount"
+        />
+        <TrackCountForm
+          v-if="showTrackForm"
+          :start-date="trackData.startDate"
+          :end-date="trackData.endDate"
+        />
       </v-card-text>
     </v-card>
   </div>

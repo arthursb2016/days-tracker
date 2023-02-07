@@ -2,6 +2,9 @@
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
+// Emits
+const emits = defineEmits(['track'])
+
 // Variables
 const currDate = new Date()
 
@@ -117,6 +120,7 @@ watch(endCurrDate, () => {
       color="orange"
       class="track-button"
       variant="outlined"
+      @click="$emit('track', { startDate, endDate })"
     >
       track count
       <v-icon
