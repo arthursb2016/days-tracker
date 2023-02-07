@@ -13,9 +13,6 @@ const endCurrDate = ref(true)
 
 // Computed
 const dateDiff = computed(() => {
-  if (!startDate.value || !endDate.value) {
-    return null
-  }
   return getDateDiff(endDate.value, startDate.value)
 })
 
@@ -39,12 +36,22 @@ watch(endDate, () => {
 watch(startCurrDate, () => {
   if (startCurrDate.value) {
     startDate.value = currDate
+    nextTick(() => {
+      if (dateDiff.value < 0) {
+        endDate.value = currDate
+      }
+    })
   }
 })
 
 watch(endCurrDate, () => {
   if (endCurrDate.value) {
     endDate.value = currDate
+    nextTick(() => {
+      if (dateDiff.value < 0) {
+        startDate.value = currDate
+      }
+    })
   }
 })
 </script>
@@ -72,9 +79,7 @@ watch(endCurrDate, () => {
                 density="compact"
                 :disabled="isSameDay(startDate, currDate)"
                 class="flex-grow-0 mr-1"
-                :class="{
-                  'cursor-not-allowed': isSameDay(startDate, currDate),
-                }"
+                :class="{ 'cursor-not-allowed': isSameDay(startDate, currDate) }"
               />
             </div>
             <Datepicker
@@ -82,6 +87,7 @@ watch(endCurrDate, () => {
               auto-apply
               :enable-time-picker="false"
               :clearable="false"
+              :max-date="endDate"
             />
           </div>
 
@@ -97,9 +103,7 @@ watch(endCurrDate, () => {
                 density="compact"
                 :disabled="isSameDay(endDate, currDate)"
                 class="flex-grow-0 mr-1"
-                :class="{
-                  'cursor-not-allowed': isSameDay(startDate, currDate),
-                }"
+                :class="{ 'cursor-not-allowed': isSameDay(startDate, currDate) }"
               />
             </div>
             <Datepicker
@@ -107,11 +111,11 @@ watch(endCurrDate, () => {
               auto-apply
               :enable-time-picker="false"
               :clearable="false"
+              :min-date="startDate"
             />
           </div>
         </div>
         <v-card
-          v-if="dateDiff !== null"
           variant="tonal"
           color="blue-lighten-1"
           class="py-2"
