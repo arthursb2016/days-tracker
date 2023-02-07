@@ -2,11 +2,18 @@
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
-const startDate = ref(null)
-const endDate = ref(null)
+const startDate = ref(new Date())
+const endDate = ref(new Date())
 
-const startCurrDate = ref(false)
-const endCurrDate = ref(false)
+const startCurrDate = ref(true)
+const endCurrDate = ref(true)
+
+const dateDiff = computed(() => {
+  if (!startDate.value || !endDate.value) {
+    return null
+  }
+  return getDateDiff(endDate.value, startDate.value)
+})
 </script>
 
 <template>
@@ -59,6 +66,9 @@ const endCurrDate = ref(false)
               :enable-time-picker="false"
             />
           </div>
+        </div>
+        <div v-if="dateDiff !== null">
+          {{ dateDiff }}
         </div>
       </v-card-text>
     </v-card>
