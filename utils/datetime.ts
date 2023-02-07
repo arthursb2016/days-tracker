@@ -1,6 +1,6 @@
 export function getDateDiff(d2: Date, d1: Date): number {
   const diffTime = d2.getTime() - d1.getTime()
-  return Math.ceil(diffTime / (1000 * 3600 * 24))
+  return Math.round(diffTime / (1000 * 3600 * 24))
 }
 
 export function isSameDay(d2: Date, d1: Date): boolean {
