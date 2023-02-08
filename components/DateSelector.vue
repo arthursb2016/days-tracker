@@ -109,7 +109,7 @@ watch(endCurrDate, () => {
   <v-card
     variant="tonal"
     color="blue-lighten-1"
-    class="py-2"
+    class="py-2 day-count-container"
   >
     The number of days between the two given dates is:
     <b>{{ dateDiff }}</b>
@@ -152,9 +152,14 @@ watch(endCurrDate, () => {
 }
 .track-button {
   position: absolute;
-  right: 0.25rem;
-  top: 0.35rem;
+  right: 0.5rem;
+  height: 2rem;
+  top: calc(50% - 1rem);
   float: right;
   font-size: 0.75rem;
+}
+.day-count-container {
+  font-size: 1.15rem;
+  padding: 1rem !important;
 }
 </style>
