@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import slugify from 'slugify'
+import { Record } from '@/utils/types'
 
 // Props
 const props = defineProps({
@@ -38,11 +39,12 @@ const currDateDiff = computed(() => {
 // Methods
 function onSave() {
   if (!trackId.value) return
-  localStorage.setItem(slugify(trackId.value), JSON.stringify({
+  const record: Record = {
     trackId: trackId.value,
     startDate: startDateStr.value,
     endDate: endDateStr.value,
-  }))
+  }
+  localStorage.setItem(slugify(trackId.value), JSON.stringify(record))
   emits('save')
 }
 

@@ -1,10 +1,11 @@
 <script setup lang="ts">
-// Types
-type TrackCount = { startDate: Date, endDate: Date }
+import { Ref } from 'vue'
+import { TrackCount, Record } from '@/utils/types' 
 
 // Variables
 let showTrackForm = ref(false)
 let trackData = reactive({})
+let records: Ref<Record[]> = ref([])
 
 // Methods
 function onTrackCount(data: TrackCount) {
@@ -19,11 +20,22 @@ function onTrackCountBack() {
 
 function onTrackCountSave() {
   onTrackCountBack()
-  console.log(localStorage)
+  loadRecords()
 }
+
+function loadRecords() {
+  records.value = []
+  Object.values(localStorage).forEach((item) => {
+    const record = JSON.parse(item)
+    if (record.trackId) {
+      records.value.push({ ...record })
+    }
+  })
+}
+
 // Hooks
 onMounted(() => {
-  console.log(localStorage)
+  loadRecords()
 })
 </script>
 
@@ -37,10 +49,6 @@ onMounted(() => {
         </v-toolbar-title>
       </v-toolbar>
       <v-card-text class="mx-4">
-        <DateSelector
-          v-if="!showTrackForm"
-          @track="onTrackCount"
-        />
         <TrackCountForm
           v-if="showTrackForm"
           :start-date="trackData.startDate"
@@ -48,6 +56,11 @@ onMounted(() => {
           @save="onTrackCountSave"
           @back="onTrackCountBack"
         />
+        <div v-else>
+          <DateSelector @track="onTrackCount" />
+          <v-divider class="mt-8"></v-divider>
+          <TrackCountTable :records="records" />
+        </div>
       </v-card-text>
     </v-card>
   </div>
