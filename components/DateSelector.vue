@@ -111,24 +111,24 @@ watch(endCurrDate, () => {
     color="blue-lighten-1"
     class="py-2 day-count-container"
   >
-    Number of days between the two given dates is:
+    Count of days between the two given dates:
     <b>{{ dateDiff }}</b>
-
-    <v-btn
-      v-if="dateDiff && (startCurrDate || endCurrDate)"
-      density="compact"
-      color="orange"
-      class="track-button"
-      variant="outlined"
-      @click="$emit('track', { startDate, endDate })"
-    >
-      track count
-      <v-icon
-        icon="mdi-radar"
-        class="ml-1"
-      />
-    </v-btn>
   </v-card>
+  <v-btn
+    v-if="dateDiff && (startCurrDate || endCurrDate)"
+    density="compact"
+    color="orange"
+    class="track-button mt-2"
+    variant="outlined"
+    block
+    @click="$emit('track', { startDate, endDate })"
+  >
+    track count
+    <v-icon
+      icon="mdi-radar"
+      class="ml-1"
+    />
+  </v-btn>
 </template>
 
 <style lang="scss" scoped>
@@ -151,12 +151,8 @@ watch(endCurrDate, () => {
   cursor: not-allowed !important;
 }
 .track-button {
-  position: absolute;
-  right: 0.5rem;
-  height: 2rem;
-  top: calc(50% - 1rem);
-  float: right;
-  font-size: 0.75rem;
+  height: 3rem;
+  font-size: 0.9rem;
 }
 .day-count-container {
   font-size: 1.15rem;

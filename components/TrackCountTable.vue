@@ -10,6 +10,9 @@ const props = defineProps({
   },
 })
 
+// Emits
+const emits = defineEmits(['reload'])
+
 // Variables
 const currDate = new Date()
 
@@ -18,6 +21,11 @@ function getRecordDateDiff(record: Record) {
   const d2 = record.endDateStr === 'Current date' ? currDate : new Date(record.endDate)
   const d1 = record.startDateStr === 'Current date' ? currDate : new Date(record.startDate)
   return getDateDiff(d2, d1)
+}
+
+function onDelete(record: Record) {
+  localStorage.removeItem(record.trackId)
+  emits('reload')
 }
 </script>
 
@@ -44,6 +52,7 @@ function getRecordDateDiff(record: Record) {
             <th class="text-left">
               Count
             </th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -55,6 +64,16 @@ function getRecordDateDiff(record: Record) {
             <td class="text-left">{{ record.startDateStr }}</td>
             <td class="text-left">{{ record.endDateStr }}</td>
             <td class="text-left">{{ getRecordDateDiff(record) }}</td>
+            <td class="text-left">
+              <v-btn
+                variant="text"
+                color="blue-lighten-2"
+                class="delete-button"
+                @click="onDelete(record)"
+              >
+                <v-icon icon="mdi-delete" color="blue-lighten-2"></v-icon>
+              </v-btn>
+            </td>
           </tr>
         </tbody>
       </v-table>
@@ -82,5 +101,10 @@ function getRecordDateDiff(record: Record) {
 :deep(.v-table__wrapper) {
   max-height: 10rem;
   height: auto Im !important;
+}
+.delete-button {
+  border-radius: 50%;
+  padding: 0 0.5rem;
+  min-width: 1rem;
 }
 </style>
