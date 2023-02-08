@@ -1,13 +1,26 @@
 <script setup lang="ts">
+// Types
 type TrackCount = { startDate: Date, endDate: Date }
 
+// Variables
 let showTrackForm = ref(false)
 let trackData = reactive({})
 
+// Methods
 function onTrackCount(data: TrackCount) {
   trackData = { ...data }
   showTrackForm.value = true
 }
+
+function onTrackCountBack() {
+  showTrackForm.value = false
+  trackData = {}
+}
+
+// Hooks
+onMounted(() => {
+  console.log(localStorage)
+})
 </script>
 
 <template>
@@ -28,6 +41,7 @@ function onTrackCount(data: TrackCount) {
           v-if="showTrackForm"
           :start-date="trackData.startDate"
           :end-date="trackData.endDate"
+          @back="onTrackCountBack"
         />
       </v-card-text>
     </v-card>
