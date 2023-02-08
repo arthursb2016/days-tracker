@@ -42,7 +42,7 @@ onMounted(() => {
 <template>
   <div class="container text-center">
     <v-card class="mx-auto">
-      <v-toolbar color="blue-darken-1">
+      <v-toolbar class="app-header" color="blue-darken-1">
         <v-toolbar-title>
           <h2 class="mb-1">Days Tracker</h2>
           <h5>Count days since a past date, until an upcoming event or just two different dates</h5>
@@ -58,8 +58,7 @@ onMounted(() => {
         />
         <div v-else>
           <DateSelector @track="onTrackCount" />
-          <v-divider class="mt-8"></v-divider>
-          <TrackCountTable :records="records" />
+          <TrackCountTable :records="records" class="mt-16" />
         </div>
       </v-card-text>
     </v-card>
@@ -68,13 +67,14 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .container {
-  margin: 2rem 8rem;
+  margin: 0rem 8rem;
 
-  :deep(.v-toolbar) {
+  .app-header {
     padding: 1.5rem;
-  }
-  :deep(.v-toolbar-title), :deep(.v-toolbar-title__placeholder) {
-    overflow: unset;
+
+    :deep(.v-toolbar-title), :deep(.v-toolbar-title__placeholder) {
+      overflow: unset;
+    }
   }
 }
 </style>

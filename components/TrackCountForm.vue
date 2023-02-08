@@ -24,12 +24,12 @@ const trackId = ref('')
 // Computed
 const startDateStr = computed(() => {
   if (isSameDay(props.startDate, currDate)) return 'Current date'
-  return props.startDate.toLocaleDateString()
+  return props.startDate.toLocaleDateString('en-US')
 })
 
 const endDateStr = computed(() => {
   if (isSameDay(props.endDate, currDate)) return 'Current date'
-  return props.endDate.toLocaleDateString()
+  return props.endDate.toLocaleDateString('en-US')
 })
 
 const currDateDiff = computed(() => {
@@ -41,8 +41,10 @@ function onSave() {
   if (!trackId.value) return
   const record: Record = {
     trackId: trackId.value,
-    startDate: startDateStr.value,
-    endDate: endDateStr.value,
+    startDate: props.startDate,
+    startDateStr: startDateStr.value,
+    endDate: props.endDate,
+    endDateStr: endDateStr.value
   }
   localStorage.setItem(slugify(trackId.value), JSON.stringify(record))
   emits('save')

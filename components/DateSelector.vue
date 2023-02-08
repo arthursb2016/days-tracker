@@ -111,7 +111,7 @@ watch(endCurrDate, () => {
     color="blue-lighten-1"
     class="py-2 day-count-container"
   >
-    The number of days between the two given dates is:
+    Number of days between the two given dates is:
     <b>{{ dateDiff }}</b>
 
     <v-btn
