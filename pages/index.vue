@@ -17,6 +17,10 @@ function onTrackCountBack() {
   trackData = {}
 }
 
+function onTrackCountSave() {
+  onTrackCountBack()
+  console.log(localStorage)
+}
 // Hooks
 onMounted(() => {
   console.log(localStorage)
@@ -41,6 +45,7 @@ onMounted(() => {
           v-if="showTrackForm"
           :start-date="trackData.startDate"
           :end-date="trackData.endDate"
+          @save="onTrackCountSave"
           @back="onTrackCountBack"
         />
       </v-card-text>
