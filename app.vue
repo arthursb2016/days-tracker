@@ -1,5 +1,6 @@
 <script>
 import '~/assets/_queries.scss'
+import '~/assets/_spacing.scss'
 </script>
 
 <template>

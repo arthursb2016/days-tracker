@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDisplay } from 'vuetify'
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
@@ -13,6 +14,8 @@ const endDate = ref(currDate)
 
 const startCurrDate = ref(true)
 const endCurrDate = ref(true)
+
+const { mobile } = useDisplay()
 
 // Computed
 const dateDiff = computed(() => {
@@ -60,8 +63,8 @@ watch(endCurrDate, () => {
 </script>
 
 <template>
-  <div class="d-flex mb-4">
-    <div class="date-container start-date-container">
+  <div class="d-flex mb-4" :class="{ 'flex-column': mobile }">
+    <div class="date-container start-date-container" :class="{ 'is-mobile': mobile }">
       <div class="d-flex align-center justify-space-between">
         <label>Start date</label>
         <v-checkbox
@@ -83,7 +86,7 @@ watch(endCurrDate, () => {
         :max-date="endDate"
       />
     </div>
-    <div class="date-container end-date-container">
+    <div class="date-container end-date-container" :class="{ 'is-mobile': mobile }">
       <div class="d-flex align-center justify-space-between">
         <label>End date</label>
         <v-checkbox
@@ -140,10 +143,10 @@ watch(endCurrDate, () => {
     font-size: 1.15rem;
   }
 
-  &.start-date-container {
+  &:not(.is-mobile).start-date-container {
     margin-right: 1rem;
   }
-  &.end-date-container {
+  &:not(.is-mobile).end-date-container {
     margin-left: 1rem;
   }
 }

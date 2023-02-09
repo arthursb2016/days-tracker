@@ -45,7 +45,7 @@ onMounted(() => {
       <v-toolbar class="app-header" color="blue-darken-1">
         <v-toolbar-title>
           <h2 class="mb-1">Days Tracker</h2>
-          <h5>Count days since a past date, until an upcoming event or just between two different dates</h5>
+          <p class="subtitle">Count days since a past date, until an upcoming event or just between two different dates</p>
         </v-toolbar-title>
       </v-toolbar>
       <v-card-text class="mx-4">
@@ -74,10 +74,21 @@ onMounted(() => {
   margin: 0rem 8rem;
 
   .app-header {
-    padding: 1.5rem;
+    padding: 2.25rem 1.5rem;
 
     :deep(.v-toolbar-title), :deep(.v-toolbar-title__placeholder) {
       overflow: unset;
+    }
+    :deep(.v-toolbar-title) {
+      line-height: unset;
+    }
+
+    .subtitle {
+      max-width: 50rem;
+      overflow-wrap: break-word;
+      white-space: initial;
+      margin: auto;
+      text-align: center;
     }
   }
 }

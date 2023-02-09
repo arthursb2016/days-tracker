@@ -1,0 +1,128 @@
+$points: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16;
+$quarterRem: 0.35rem;
+
+@each $point in $points {
+  $value: $point * $quarterRem;
+
+  /* regular */
+  .m-#{$point} {
+    margin: $value  !important;
+  }
+
+  .mt-#{$point} {
+    margin-top: $value  !important;
+  }
+
+  .mr-#{$point} {
+    margin-right: $value  !important;
+  }
+
+  .mb-#{$point} {
+    margin-bottom: $value  !important;
+  }
+
+  .ml-#{$point} {
+    margin-left: $value  !important;
+  }
+
+  .mx-#{$point} {
+    margin-left: $value  !important;
+    margin-right: $value  !important;
+  }
+
+  .my-#{$point} {
+    margin-top: $value  !important;
+    margin-bottom: $value  !important;
+  }
+
+  .p-#{$point} {
+    padding: $value  !important;
+  }
+
+  .pt-#{$point} {
+    padding-top: $value  !important;
+  }
+
+  .pr-#{$point} {
+    padding-right: $value  !important;
+  }
+
+  .pb-#{$point} {
+    padding-bottom: $value  !important;
+  }
+
+  .pl-#{$point} {
+    padding-left: $value  !important;
+  }
+
+  .px-#{$point} {
+    padding-left: $value  !important;
+    padding-right: $value  !important;
+  }
+
+  .py-#{$point} {
+    padding-top: $value  !important;
+    padding-bottom: $value  !important;
+  }
+
+  /* negative */
+  .m-n#{$point} {
+    margin: -$value  !important;
+  }
+
+  .mt-n#{$point} {
+    margin-top: -$value  !important;
+  }
+
+  .mr-n#{$point} {
+    margin-right: $value  !important;
+  }
+
+  .mb-n#{$point} {
+    margin-bottom: $value  !important;
+  }
+
+  .ml-n#{$point} {
+    margin-left: $value  !important;
+  }
+
+  .mx-n#{$point} {
+    margin-left: $value  !important;
+    margin-right: $value  !important;
+  }
+
+  .my-n#{$point} {
+    margin-top: $value  !important;
+    margin-bottom: $value  !important;
+  }
+
+  .p-n#{$point} {
+    padding: $value  !important;
+  }
+
+  .pt-n#{$point} {
+    padding-top: $value  !important;
+  }
+
+  .pr-n#{$point} {
+    padding-right: $value  !important;
+  }
+
+  .pb-n#{$point} {
+    padding-bottom: $value  !important;
+  }
+
+  .pl-n#{$point} {
+    padding-left: $value  !important;
+  }
+
+  .px-n#{$point} {
+    padding-left: $value  !important;
+    padding-right: $value  !important;
+  }
+
+  .py-n#{$point} {
+    padding-top: $value  !important;
+    padding-bottom: $value  !important;
+  }
+}
