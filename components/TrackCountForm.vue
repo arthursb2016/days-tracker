@@ -85,7 +85,7 @@ onMounted(() => {
   />
   <div class="d-flex">
     <v-btn
-      color="orange"
+      color="teal-lighten-3"
       variant="outlined"
       class="flex-grow-1 mr-1"
       :disabled="!trackId"

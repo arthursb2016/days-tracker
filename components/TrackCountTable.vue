@@ -33,7 +33,7 @@ function onDelete(record: Record) {
   <v-card class="mx-auto">
     <v-toolbar>
       <v-toolbar-title>
-        Saved counts (locally)
+        <span>Saved counts (locally)</span>
       </v-toolbar-title>
     </v-toolbar>
     <v-card-text>

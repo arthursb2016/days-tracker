@@ -111,16 +111,16 @@ watch(endCurrDate, () => {
   </div>
   <v-card
     variant="tonal"
-    color="blue-lighten-1"
+    color="black"
     class="py-2 day-count-container"
   >
-    Count of days between the two given dates:
+    <span class="mr-1">Count of days between the two given dates:</span>
     <b>{{ dateDiff }}</b>
   </v-card>
   <v-btn
     v-if="dateDiff && (startCurrDate || endCurrDate)"
     density="compact"
-    color="orange"
+    color="teal-lighten-3"
     class="track-button mt-2"
     variant="outlined"
     block

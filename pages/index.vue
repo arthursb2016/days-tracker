@@ -42,13 +42,13 @@ onMounted(() => {
 <template>
   <div class="container text-center">
     <v-card class="mx-auto">
-      <v-toolbar class="app-header">
+      <v-toolbar class="app-header px-8">
         <v-toolbar-title>
-          <h1 class="mb-1">Days Tracker</h1>
+          <h1 class="mb-4">Days Tracker</h1>
           <p class="subtitle">Count days since a past date, until an upcoming event or just between two different dates</p>
         </v-toolbar-title>
       </v-toolbar>
-      <v-card-text class="mx-4">
+      <v-card-text class="px-8 pb-8">
         <TrackCountForm
           v-if="showTrackForm"
           :start-date="trackData.startDate"
@@ -74,7 +74,7 @@ onMounted(() => {
   margin: 0rem 8rem;
 
   .app-header {
-    padding: 2.25rem 1.5rem;
+    padding: 2.5rem 1.5rem;
     background-color: #1245a3;
     color: white;
 
@@ -82,7 +82,8 @@ onMounted(() => {
       overflow: unset;
     }
     :deep(.v-toolbar-title) {
-      line-height: unset;
+      line-height: 1.25rem;
+      margin-inline-start: 0px;
     }
 
     .subtitle {
