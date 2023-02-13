@@ -77,7 +77,7 @@ function onDelete(record: Record) {
           </tr>
         </tbody>
       </v-table>
-      <div v-if="!records.length" class="text-grey text-left">
+      <div v-if="!records.length" class="text-grey-darken-2 text-left">
         To track dates (save your inputs), follow these rules: <br>
         <div>
           1. One of the dates (start or end) has to be set as "current date";
