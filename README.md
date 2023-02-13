@@ -24,13 +24,15 @@ One of my subject of study in this project is web accessibility, I will keep the
 - Multimedia (video, audio) alternatives [N/A]
 - Basic structure check ![](success_24_24.png)
 
-<style>
-ul li {
-  display: flex;
-  align-items: center;
-}
+        <html>
+          <style>
+          ul li {
+            display: flex;
+            align-items: center;
+          }
 
-ul li img {
-  margin-left: 8px;
-}
-</style>
+          ul li img {
+            margin-left: 8px;
+          }
+          </style>
+        </html>
