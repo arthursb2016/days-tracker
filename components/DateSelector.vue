@@ -66,7 +66,7 @@ watch(endCurrDate, () => {
   <div class="d-flex mb-4" :class="{ 'flex-column': mobile }">
     <div class="date-container start-date-container" :class="{ 'is-mobile': mobile }">
       <div class="d-flex align-center justify-space-between">
-        <label>Start date</label>
+        <label for="startDatePicker">Start date</label>
         <v-checkbox
           v-model="startCurrDate"
           label="Current date"
@@ -79,6 +79,8 @@ watch(endCurrDate, () => {
         />
       </div>
       <Datepicker
+        id="startDatePicker"
+        name="startDatePicker"
         v-model="startDate"
         auto-apply
         :enable-time-picker="false"
@@ -88,7 +90,7 @@ watch(endCurrDate, () => {
     </div>
     <div class="date-container end-date-container" :class="{ 'is-mobile': mobile }">
       <div class="d-flex align-center justify-space-between">
-        <label>End date</label>
+        <label for="endDatePicker">End date</label>
         <v-checkbox
           v-model="endCurrDate"
           label="Current date"
@@ -101,6 +103,8 @@ watch(endCurrDate, () => {
         />
       </div>
       <Datepicker
+        id="endDatePicker"
+        name="endDatePicker"
         v-model="endDate"
         auto-apply
         :enable-time-picker="false"

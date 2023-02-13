@@ -59,57 +59,59 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-text-field
-    id="trackingId"
-    v-model="trackId"
-    label="Tracking identifier (name)"
-    variant="outlined"
-  />
-  <v-text-field
-    v-model="startDateStr"
-    label="Start date"
-    variant="outlined"
-    disabled
-  />
-  <v-text-field
-    v-model="endDateStr"
-    label="End date"
-    variant="outlined"
-    disabled
-  />
-  <v-text-field
-    v-model="currDateDiff"
-    label="Current count difference"
-    variant="outlined"
-    disabled
-  />
-  <div class="d-flex">
-    <v-btn
-      color="green-darken-3"
+  <v-form @submit.prevent="onSave">
+    <v-text-field
+      id="trackingId"
+      v-model="trackId"
+      label="Tracking identifier (name)"
       variant="outlined"
-      class="flex-grow-1 mr-1"
-      :disabled="!trackId"
-      @click="onSave"
-    >
-      <v-icon
-        icon="mdi-radar"
-        class="mr-1"
-      />
-      <span>Save to Browser</span>
-    </v-btn>
-    <v-btn
-      color="blue-grey-darken-2"
+    />
+    <v-text-field
+      v-model="startDateStr"
+      label="Start date"
       variant="outlined"
-      class="flex-grow-1 ml-1"
-      @click="$emit('back')"
-    >
-      <span>Return</span>
-      <v-icon
-        icon="mdi-keyboard-return"
-        class="ml-1"
-      />
-    </v-btn>
-  </div>
+      disabled
+    />
+    <v-text-field
+      v-model="endDateStr"
+      label="End date"
+      variant="outlined"
+      disabled
+    />
+    <v-text-field
+      v-model="currDateDiff"
+      label="Current count difference"
+      variant="outlined"
+      disabled
+    />
+    <div class="d-flex">
+      <v-btn
+        color="green-darken-3"
+        variant="outlined"
+        class="flex-grow-1 mr-1"
+        :disabled="!trackId"
+        type="submit"
+      >
+        <v-icon
+          icon="mdi-radar"
+          class="mr-1"
+        />
+        <span>Save to Browser</span>
+      </v-btn>
+      <v-btn
+        color="blue-grey-darken-2"
+        variant="outlined"
+        class="flex-grow-1 ml-1"
+        @click="$emit('back')"
+      >
+        <span>Return</span>
+        <v-icon
+          icon="mdi-keyboard-return"
+          class="ml-1"
+        />
+      </v-btn>
+    </div>
+  </v-form>
 </template>
 
 <style lang="scss" scoped>

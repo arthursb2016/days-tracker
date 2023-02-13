@@ -87,9 +87,12 @@ onMounted(() => {
       line-height: 1.25rem;
       margin-inline-start: 0px;
     }
+    :deep(.v-toolbar__content) {
+      height: auto !important;
+    }
 
     .subtitle {
-      max-width: 50rem;
+      max-width: 100rem;
       overflow-wrap: break-word;
       white-space: initial;
       margin: auto;
