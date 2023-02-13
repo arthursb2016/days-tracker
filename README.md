@@ -13,13 +13,13 @@ One of my subject of study in this project is web accessibility, I will keep the
 
 [W3 Test & Evaluate](https://www.w3.org/WAI/test-evaluate/preliminary/):
 
-- Page title ![](success.png)
-- Image text alternatives ("alt text") ![](success.png)
-- Headings ![](success.png)
-- Contrast ratio ("color contrast") ![](success.png)
-- Resize text ![](success.png)
-- Keyboard access and visual focus ![](success.png)
-- Forms, labels, and errors ![](success.png)
+- Page title ![](success_24_24.png)
+- Image text alternatives ("alt text") ![](success_24_24.png)
+- Headings ![](success_24_24.png)
+- Contrast ratio ("color contrast") ![](success_24_24.png)
+- Resize text ![](success_24_24.png)
+- Keyboard access and visual focus ![](success_24_24.png)
+- Forms, labels, and errors ![](success_24_24.png)
 - Moving, Flashing, or Blinking Content [N/A]
 - Multimedia (video, audio) alternatives [N/A]
-- Basic structure check ![](success.png)
+- Basic structure check ![](success_24_24.png)
