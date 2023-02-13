@@ -25,3 +25,7 @@ I will keep the results here for future references:
 - Moving, Flashing, or Blinking Content [N/A]
 - Multimedia (video, audio) alternatives [N/A]
 - Basic structure check ![](success_16.png)
+
+Lighthouse score:
+
+![Lighthouse report with all metrics at 100 score](lighthouse.png)
