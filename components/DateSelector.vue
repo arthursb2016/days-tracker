@@ -119,7 +119,7 @@ watch(endCurrDate, () => {
   <v-btn
     v-if="dateDiff && (startCurrDate || endCurrDate)"
     density="compact"
-    color="teal-lighten-3"
+    color="green-darken-3"
     class="track-button mt-2"
     variant="outlined"
     block

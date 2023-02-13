@@ -85,7 +85,7 @@ onMounted(() => {
   />
   <div class="d-flex">
     <v-btn
-      color="teal-lighten-3"
+      color="green-darken-3"
       variant="outlined"
       class="flex-grow-1 mr-1"
       :disabled="!trackId"
@@ -95,15 +95,15 @@ onMounted(() => {
         icon="mdi-radar"
         class="mr-1"
       />
-      Save to Browser
+      <span>Save to Browser</span>
     </v-btn>
     <v-btn
-      color="grey"
+      color="blue-grey-darken-2"
       variant="outlined"
       class="flex-grow-1 ml-1"
       @click="$emit('back')"
     >
-      Return
+      <span>Return</span>
       <v-icon
         icon="mdi-keyboard-return"
         class="ml-1"
