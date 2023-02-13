@@ -17,6 +17,9 @@ export default defineNuxtConfig({
     head: {
       title: 'Days Tracker',
       viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0',
+      htmlAttrs: {
+        lang: 'en',
+      },
       meta: [
         { name: 'description', content: 'Date difference calculator, with tracking days options.' },
         { name: 'msapplication-TileColor', content: '#ffffff"' },
