@@ -60,6 +60,19 @@ watch(endCurrDate, () => {
     })
   }
 })
+
+// Hooks
+onMounted(() => {
+  const startDateInput = document.querySelector('input[name="startDatePicker"]')
+  const endDateInput = document.querySelector('input[name="endDatePicker"]')
+  console.dir(startDateInput)
+  if (startDateInput) {
+    startDateInput.setAttribute('id', 'startDatePicker')
+  }
+  if (endDateInput) {
+    endDateInput.setAttribute('id', 'endDatePicker')
+  }
+})
 </script>
 
 <template>
@@ -79,7 +92,6 @@ watch(endCurrDate, () => {
         />
       </div>
       <Datepicker
-        id="startDatePicker"
         name="startDatePicker"
         v-model="startDate"
         auto-apply
@@ -103,7 +115,6 @@ watch(endCurrDate, () => {
         />
       </div>
       <Datepicker
-        id="endDatePicker"
         name="endDatePicker"
         v-model="endDate"
         auto-apply
