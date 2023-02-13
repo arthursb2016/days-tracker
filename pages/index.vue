@@ -70,12 +70,14 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@import '~/assets/_colors.scss';
+
 .container {
   margin: 0rem 8rem;
 
   .app-header {
     padding: 2.5rem 1.5rem;
-    background-color: #1245a3;
+    background-color: $primaryBlue;
     color: white;
 
     :deep(.v-toolbar-title), :deep(.v-toolbar-title__placeholder) {

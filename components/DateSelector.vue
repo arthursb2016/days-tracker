@@ -111,7 +111,6 @@ watch(endCurrDate, () => {
   </div>
   <v-card
     variant="tonal"
-    color="black"
     class="py-2 day-count-container"
   >
     <span class="mr-1">Count of days between the two given dates:</span>
@@ -135,6 +134,8 @@ watch(endCurrDate, () => {
 </template>
 
 <style lang="scss" scoped>
+@import '~/assets/_colors.scss';
+
 .date-container {
   text-align: left;
   flex-grow: 1;
@@ -160,5 +161,7 @@ watch(endCurrDate, () => {
 .day-count-container {
   font-size: 1.15rem;
   padding: 1rem !important;
+  background: $primaryBlue;
+  color: white !important;
 }
 </style>
