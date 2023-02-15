@@ -33,3 +33,12 @@ Lighthouse score:
 More audition tools: [reference links](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#auditing_tools)
 
 ---
+
+My second subject of study here is **End-to-end testing**
+
+I am also keeping these here for future references:
+
+[MDN Cross Browser testing](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing)
+
+- https://webdriver.io/docs/component-testing/vue
+- https://nightwatchjs.org/
