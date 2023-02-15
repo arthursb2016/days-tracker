@@ -8,7 +8,7 @@ Application built with [Nuxt 3](https://nuxt.com/docs)
 
 ---
 
-One of my subject of study in this project is **web accessibility**
+My first subject of study in this project is **web accessibility**
 
 I will keep the results here for future references:
 
@@ -29,3 +29,7 @@ I will keep the results here for future references:
 Lighthouse score:
 
 ![Lighthouse report with all metrics at 100 score](lighthouse.png)
+
+More audition tools: [reference links](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#auditing_tools)
+
+---
