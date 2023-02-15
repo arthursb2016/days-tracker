@@ -40,7 +40,7 @@ const currDateDiff = computed(() => {
 function onSave() {
   if (!trackId.value) return
   const record: Record = {
-    trackId: trackId.value,
+    trackId: slugify(trackId.value),
     startDate: props.startDate,
     startDateStr: startDateStr.value,
     endDate: props.endDate,

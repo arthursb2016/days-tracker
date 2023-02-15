@@ -65,7 +65,6 @@ watch(endCurrDate, () => {
 onMounted(() => {
   const startDateInput = document.querySelector('input[name="startDatePicker"]')
   const endDateInput = document.querySelector('input[name="endDatePicker"]')
-  console.dir(startDateInput)
   if (startDateInput) {
     startDateInput.setAttribute('id', 'startDatePicker')
   }
