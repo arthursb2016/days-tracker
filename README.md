@@ -34,11 +34,15 @@ More audition tools: [reference links](https://developer.mozilla.org/en-US/docs/
 
 ---
 
-My second subject of study here is **End-to-end testing**
+My second subject of study here is **cross browser testing**
 
 I am also keeping these here for future references:
 
 [MDN Cross Browser testing](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing)
 
-- https://webdriver.io/docs/component-testing/vue
-- https://nightwatchjs.org/
+Cool free testing tool: [Browserling](https://www.browserling.com/)
+
+End-to-end testing packages:
+
+- [WebDriver](https://webdriver.io/docs/component-testing/vue)
+- [Nightwatch](https://nightwatchjs.org/)
