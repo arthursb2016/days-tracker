@@ -1,6 +1,8 @@
-// https://www.selenium.dev/documentation/overview/
+// WebDriver API: https://www.selenium.dev/documentation/overview/
+// Results Dashboard (since its remote tested): BrowserStack
 
-const webdriver = require('selenium-webdriver')
+const { Builder } = require('selenium-webdriver')
+const assert = require('assert')
 
 // Edge
 const capabilities1 = {
@@ -40,44 +42,48 @@ const capabilities3 = {
 
 // Functionality test
 async function runTestWithCaps (capabilities) {
-  let driver = new webdriver.Builder()
-    .usingServer('http://arthurborba_QMymrs:Hp3FUxt7dGeEyiK8wtzV@hub-cloud.browserstack.com/wd/hub')
-    .withCapabilities({
-      ...capabilities,
-      ...capabilities['browser'] && { browserName: capabilities['browser']}  // Because NodeJS language binding requires browserName to be defined
-    })
-    .build()
+  let driver = await new Builder()
+  .usingServer('http://arthurborba_QMymrs:Hp3FUxt7dGeEyiK8wtzV@hub-cloud.browserstack.com/wd/hub')
+  .withCapabilities({
+    ...capabilities,
+    ...capabilities['browser'] && { browserName: capabilities['browser']}  // Because NodeJS language binding requires browserName to be defined
+  })
+  .build()
 
   try {
     await driver.get("https://daystracker.com/")
-  //   await driver.wait(webdriver.until.titleMatches(/StackDemo/i), 10000)
-  //   // locating product on webpage and getting name of the product
-  //   let productText = await driver
-  //     .findElement(webdriver.By.xpath('//*[@id="1"]/p'))
-  //     .getText()
-  //   // clicking the 'Add to cart' button
-  //   await driver.findElement(webdriver.By.xpath('//*[@id="1"]/div[4]')).click()
-  //   // waiting until the Cart pane has been displayed on the webpage
-  //   driver.findElement(webdriver.By.className("float-cart__content"))
-  //   // locating product in cart and getting name of the product in cart
-  //   let productCartText = await driver
-  //     .findElement(
-  //       webdriver.By.xpath(
-  //         '//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]'
-  //       )
-  //     )
-  //     .getText()
-  //   // checking whether product has been added to cart by comparing product name
-  //   if(productCartText !== productText) 
-  //     throw new Error("")
-  //   await driver.executeScript(
-  //     'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Product has been successfully added to the cart!"}}'
-  //   )
-  // } catch (e) {
-  //   await driver.executeScript(
-  //     'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Some elements failed to load!"}}'
-  //   )
-  // }
+
+    let title = await driver.getTitle()
+    assert.equal('Days Tracker2', title)
+
+    // await driver.wait(webdriver.until.titleMatches(/StackDemo/i), 10000)
+    // // locating product on webpage and getting name of the product
+    // let productText = await driver
+    //   .findElement(webdriver.By.xpath('//*[@id="1"]/p'))
+    //   .getText()
+    // // clicking the 'Add to cart' button
+    // await driver.findElement(webdriver.By.xpath('//*[@id="1"]/div[4]')).click()
+    // // waiting until the Cart pane has been displayed on the webpage
+    // driver.findElement(webdriver.By.className("float-cart__content"))
+    // // locating product in cart and getting name of the product in cart
+    // let productCartText = await driver
+    //   .findElement(
+    //     webdriver.By.xpath(
+    //       '//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]'
+    //     )
+    //   )
+    //   .getText()
+    // // checking whether product has been added to cart by comparing product name
+    // if(productCartText !== productText) 
+    //   throw new Error("")
+
+    const script = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "Days were successfully tracked!"}}'
+    await driver.executeScript(script)
+  } catch (e) {
+    const script = `browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed", "reason": "${e.message}"}}`
+    await driver.executeScript(script)
+  }
+
   await driver.quit()
 }
 

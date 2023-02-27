@@ -34,13 +34,16 @@ More audition tools: [reference links](https://developer.mozilla.org/en-US/docs/
 
 ---
 
-My second subject of study here is **cross browser testing**
+My second subject of study here is **cross browser automated testing**
 
 I am also keeping these here for future references:
 
 [MDN Cross Browser testing](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing)
 
-Cool free testing tool: [Browserling](https://www.browserling.com/)
+
+Other references:
+
+Manual free testing tool: [Browserling](https://www.browserling.com/)
 
 End-to-end testing packages:
 
