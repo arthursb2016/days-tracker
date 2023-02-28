@@ -38,7 +38,13 @@ My second subject of study here is **cross browser automated testing**
 
 I am also keeping these here for future references:
 
-[MDN Cross Browser testing](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing)
+[MDN Cross Browser testing guide](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing)
+
+Browser Stack Report (tests ran in Edge, Chrome, Safari and Firefox):
+
+![Browser Stack report with all 4 major browsers](browserstack.png)
+
+Script: [browser-test.js](https://github.com/arthursb2016/days-tracker/blob/master/browser-test.js)
 
 
 Other references:
