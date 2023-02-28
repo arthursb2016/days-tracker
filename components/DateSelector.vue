@@ -128,7 +128,7 @@ onMounted(() => {
     class="py-2 day-count-container"
   >
     <span class="mr-1">Count of days between the two given dates:</span>
-    <b>{{ dateDiff }}</b>
+    <b id="dateDiff">{{ dateDiff }}</b>
   </v-card>
   <v-btn
     v-if="dateDiff && (startCurrDate || endCurrDate)"
